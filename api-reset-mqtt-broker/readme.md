@@ -2,6 +2,23 @@
 
 This Flask-based web application resets the MQTT broker settings for specified Meraki MV cameras. The script ensures that each camera's MQTT broker is correctly configured by updating any cameras that have incorrect settings. The application provides a web interface to run the update script and returns a summary of the camera configurations.
 
+## Table of Contents
+
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [API Endpoints](#api-endpoints)
+- [Example Summary Output](#example-summary-output)
+- [Notes](#notes)
+- [Retrieving Meraki API Key, Organization ID, Network ID, and MQTT Broker ID](#retrieving-meraki-api-key-organization-id-network-id-and-mqtt-broker-id)
+  - [1. Getting the Meraki API Key](#1-getting-the-meraki-api-key)
+  - [2. Finding Your Organization ID](#2-finding-your-organization-id)
+  - [3. Finding Your Network ID](#3-finding-your-network-id)
+  - [4. Finding Your MQTT Broker ID](#4-finding-your-mqtt-broker-id)
+- [Summary](#summary)
+
 ## Features
 
 - Retrieves the current MQTT broker settings for Meraki MV cameras.
