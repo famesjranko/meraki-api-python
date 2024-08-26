@@ -12,13 +12,13 @@ API_KEY = ''
 dashboard = meraki.DashboardAPI(API_KEY)
 
 # Define your organization and network IDs
-organization_id = '1202153'  # ltu
-network_id = 'L_833165931063549202'  # dih jenny graves level2
+organization_id = ''  # add org id
+network_id = ''  # add network id
 
 # Define the Camera Sense MQTT broker ID
-mqtt_broker_id = '833165931063541914'  # andrew-test
+mqtt_broker_id = ''  # set broker id
 
-# List of MAC addresses for cameras that should be updated
+# List of MAC addresses for cameras that should be updated, eg
 mac_addresses_to_update = [
     '0c:7b:c8:da:a6:52',  # CollaborationHub201C
     '0c:7b:c8:da:a4:3f',  # CoWorkSpace216
