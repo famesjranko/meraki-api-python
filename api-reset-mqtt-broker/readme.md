@@ -91,3 +91,92 @@ The output from running the script includes:
 
 The script adds a delay of 5 seconds after updating each camera to ensure the changes take effect.
 The Flask app runs on port 5000 by default. You can adjust this in the app.run() call if needed.
+
+# Retrieving Meraki API Key, Organization ID, Network ID, and MQTT Broker ID
+
+This guide explains how to obtain the necessary details to configure the Meraki MQTT broker reset script.
+
+## 1. Getting the Meraki API Key
+
+Your Meraki API key is required to authenticate with the Meraki Dashboard API.
+
+1. Log in to your Meraki Dashboard at [dashboard.meraki.com](https://dashboard.meraki.com).
+2. Click on your account profile in the upper-right corner and select **My Profile**.
+3. Scroll down to the **API Access** section.
+4. If you don’t have an API key yet, click on **Generate new API key**. Your key will be displayed once generated. **Be sure to copy and store this key securely**, as it won't be shown again.
+5. Set the API key in your environment using the following command (recommended for security):
+
+    ```bash
+    export MERAKI_DASHBOARD_API_KEY=<your_api_key>
+    ```
+
+Alternatively, you can directly set it in the script by modifying the `API_KEY` variable:
+
+```python
+API_KEY = '<your_api_key>'
+```
+
+## 2. Finding Your Organization ID
+The organization ID is needed to identify the Meraki organization you want to work with.
+
+1. Log in to the Meraki Dashboard.
+
+2. In the URL, you'll see something like:
+
+```bash
+https://dashboard.meraki.com/o/<organization_id>/manage/organization/overview
+```
+3. The value after /o/ is your organization ID. Copy this value.
+
+4. Set the organization_id variable in the script:
+
+```python
+organization_id = '<your_organization_id>'
+```
+
+## 3. Finding Your Network ID
+The network ID is specific to the network where your Meraki devices are located.
+
+1. In the Meraki Dashboard, navigate to Networks > Network List.
+
+2. Select the network you want to configure.
+
+3. In the URL, you’ll see something like:
+
+```bash
+https://dashboard.meraki.com/n/<network_id>/manage/overview
+```
+4. The value after /n/ is your network ID. Copy this value.
+
+5. Set the network_id variable in the script:
+
+```python
+network_id = '<your_network_id>'
+```
+
+## 4. Finding Your MQTT Broker ID
+The MQTT broker ID is associated with the MQTT broker you want to configure for your cameras.
+
+1. Log in to the Meraki Dashboard and go to Network-wide > Settings > MQTT.
+
+2. If you have already configured a broker, you will see it listed along with its MQTT broker ID.
+
+3. Note down the MQTT broker ID.
+
+4. Set the mqtt_broker_id variable in the script:
+
+```python
+mqtt_broker_id = '<your_mqtt_broker_id>'
+```
+
+## Summary
+Once you have retrieved all the required IDs and the API key, you can set them in your script or as environment variables. Here’s an example of the final configuration in your script:
+
+```python
+API_KEY = '<your_api_key>'
+organization_id = '<your_organization_id>'
+network_id = '<your_network_id>'
+mqtt_broker_id = '<your_mqtt_broker_id>'
+```
+
+You’re now ready to run the script with the correct settings for your Meraki cameras.
